@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/chatsMenuItem"
+        android:title="Chats"
+        android:icon="@drawable/ic_chats"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/profileMenuItem"
+        android:title="Profile"
+        android:icon="@drawable/profile_style"
+        android:enabled="true"
+        android:checked="true"/>
+    <item
+        android:id="@+id/settingsMenuItem"
+        android:title="Settings"/>
+</menu>
