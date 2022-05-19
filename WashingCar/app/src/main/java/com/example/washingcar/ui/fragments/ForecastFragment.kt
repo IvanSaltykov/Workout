@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.washingcar.Weather
 import com.example.washingcar.databinding.FragmentForecastBinding
 import com.example.washingcar.model.WeatherResponse
 import com.example.washingcar.preferences.PreferencesManager
@@ -28,9 +29,11 @@ class ForecastFragment : Fragment() {
         preferences = PreferencesManager(requireContext())
         binding.button.setOnClickListener {
             ApiService.retrofit.getWeather(
-                preferences.lat.toDouble(),
                 preferences.lon.toDouble(),
+                preferences.lat.toDouble(),
                 listOf("temperature_2m")
+//                listOf("temperature_2m_max", "temperature_2m_min"),
+//                "Europe/Moscow"
             ).enqueue(
                 object : Callback<WeatherResponse> {
                     override fun onResponse(
@@ -38,6 +41,7 @@ class ForecastFragment : Fragment() {
                         response: Response<WeatherResponse>
                     ) {
                         val responsse = response.body()
+                        Weather(responsse!!)
                         Log.d("ress", responsse.toString())
                         Toast.makeText(requireContext(), "${responsse?.latitude}, ${responsse?.longitude}", Toast.LENGTH_SHORT).show()
                     }

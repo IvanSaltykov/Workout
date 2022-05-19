@@ -10,5 +10,7 @@ interface RequestApiGeocoding {
         @Query("latitude") lat: Double,
         @Query("longitude") lon: Double,
         @Query("hourly") hourly: List<String>
+//        @Query("daily") daily: List<String>,
+//        @Query("timezone") timezone: String
     ): Call<WeatherResponse>
 }

@@ -7,7 +7,7 @@
     app:cardCornerRadius="15dp"
     android:layout_margin="5dp"
     android:backgroundTint="@color/gray">
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -15,11 +15,13 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_column="0"
+            android:layout_columnWeight="500">
             <TextView
+                android:id="@+id/textViewDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewDay"
                 tools:text="18 мая 2022г."
                 android:textSize="30sp"
                 android:textColor="@color/black"/>
@@ -32,10 +34,12 @@
                 android:textColor="@color/black"/>
         </LinearLayout>
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/imageViewWeather"
-            android:layout_weight="1"
-            tools:src="@drawable/ic_cloud"/>
-    </LinearLayout>
+            tools:src="@drawable/ic_cloud"
+            android:layout_column="1"
+            android:layout_columnWeight="100"/>
+    </GridLayout>
+
 </androidx.cardview.widget.CardView>
