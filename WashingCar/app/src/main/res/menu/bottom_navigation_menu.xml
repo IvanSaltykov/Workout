@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemBottomMenuForecast"
+        android:title="Прогноз"/>
+    <item
+        android:id="@+id/itemBottomMenuWeather"
+        android:title="Погода"/>
+    <item
+        android:id="@+id/itemBottomMenuInformation"
+        android:title="Информация"/>
+</menu>
