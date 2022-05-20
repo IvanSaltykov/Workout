@@ -5,41 +5,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="15dp"
-    android:layout_margin="5dp"
-    android:backgroundTint="@color/gray">
-    <GridLayout
+    android:layout_margin="5dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_margin="5dp">
+        android:layout_margin="10dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_column="0"
-            android:layout_columnWeight="500">
+            android:layout_columnWeight="500"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/textViewDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="18 мая 2022г."
+                android:textColor="@color/black"
                 android:textSize="30sp"
-                android:textColor="@color/black"/>
+                tools:text="18 мая 2022г." />
+
             <TextView
+                android:id="@+id/textWeatherDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textWeatherDay"
-                tools:text="18 градусов"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textColor="@color/black"/>
+                tools:text="18 градусов" />
         </LinearLayout>
+
         <ImageView
+            android:id="@+id/imageViewWeather"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/imageViewWeather"
-            tools:src="@drawable/ic_cloud"
             android:layout_column="1"
-            android:layout_columnWeight="100"/>
-    </GridLayout>
+            android:layout_columnWeight="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_cloud" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
