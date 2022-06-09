@@ -16,7 +16,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class ForecastFragment : Fragment() {
     lateinit var preferences: PreferencesManager
     lateinit var binding: FragmentForecastBinding
@@ -29,11 +28,11 @@ class ForecastFragment : Fragment() {
         preferences = PreferencesManager(requireContext())
         binding.button.setOnClickListener {
             ApiService.retrofit.getWeather(
-                preferences.lon.toDouble(),
                 preferences.lat.toDouble(),
-                listOf("temperature_2m")
-//                listOf("temperature_2m_max", "temperature_2m_min"),
-//                "Europe/Moscow"
+                preferences.lon.toDouble(),
+//                listOf("temperature_2m")
+                listOf("temperature_2m_max", "temperature_2m_min"),
+               "Europe/Moscow"
             ).enqueue(
                 object : Callback<WeatherResponse> {
                     override fun onResponse(
@@ -43,7 +42,7 @@ class ForecastFragment : Fragment() {
                         val responsse = response.body()
                         Weather(responsse!!)
                         Log.d("ress", responsse.toString())
-                        Toast.makeText(requireContext(), "${responsse?.latitude}, ${responsse?.longitude}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "${responsse.latitude}, ${responsse.longitude}", Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
